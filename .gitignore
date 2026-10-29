@@ -1,4 +1,16 @@
+# Python / uv
 .venv/
-.env
 __pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Editor / OS
+.DS_Store
 .idea/
+.vscode/

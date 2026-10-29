@@ -15,12 +15,14 @@ class Settings(BaseSettings):
 
     @property
     def database_url(self) -> str:
+        # URL-encode credentials so valid punctuation in passwords remains safe.
         password = quote(self.postgres_password, safe="")
+        user = quote(self.postgres_user, safe="")
+        database = quote(self.postgres_db, safe="")
         return (
-            f"postgresql://{self.postgres_user}:{password}"
-            f"@{self.postgres_host}:{self.postgres_port}/{self.postgres_db}"
+            f"postgresql://{user}:{password}"
+            f"@{self.postgres_host}:{self.postgres_port}/{database}"
         )
 
 
 settings = Settings()
-
