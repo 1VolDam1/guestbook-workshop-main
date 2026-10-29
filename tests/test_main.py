@@ -32,7 +32,7 @@ def test_root_returns_greeting(client: TestClient) -> None:
     response = client.get("/")
 
     assert response.status_code == 200
-    assert response.json()["message"] == "Test guestbook"
+    assert response.json()["message"] == main.settings.greeting
 
 
 def test_health_is_ok(client: TestClient) -> None:
