@@ -57,3 +57,9 @@ def test_add_message(client: TestClient) -> None:
 
     assert response.status_code == 200
     assert response.json() == {"ok": True}
+
+def test_version(client: TestClient) -> None:
+    response = client.get("/version")
+
+    assert response.status_code == 200
+    assert response.json() == {"version": "1.1.0"}
