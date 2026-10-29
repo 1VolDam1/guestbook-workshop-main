@@ -38,6 +38,10 @@ def index():
 def health():
     return {"status": "ok"}
 
+@app.get("/version")
+def get_version():
+    return {"version": "1.1.0"}
+
 
 @app.get("/messages")
 def list_messages():
